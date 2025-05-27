@@ -4,14 +4,16 @@
 @{
     ViewData["Title"] = "Потребители";
     Layout = "_Layout";
+    var userId = this.Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
     var adminRoleId = Model.roles.FirstOrDefault(x => x.Name!.Equals("Admin", StringComparison.InvariantCultureIgnoreCase))?.Id;
     var teacherRoleId = Model.roles.FirstOrDefault(x => x.Name!.Equals("Teacher", StringComparison.InvariantCultureIgnoreCase))?.Id;
     var studentRoleId = Model.roles.FirstOrDefault(x => x.Name!.Equals("Student", StringComparison.InvariantCultureIgnoreCase))?.Id;
 }
 
 <div id="container">
-    <div style="display: flex; margin-bottom: 0.5rem;">
-        <a asp-controller="Admin" asp-action="CreateUser" id="createButton">Създай потребител</a>
+    <div style="display: flex; margin-bottom: 0.5rem; gap: 2rem">
+        <a asp-controller="Admin" asp-action="CreateUser" style="margin-left: auto" class="button">Създай потребител</a>
+        <a asp-controller="Grade" asp-action="Grades" class="button">Оценки</a>
     </div>
     <table>
         <tr>
@@ -38,10 +40,12 @@
                     }
                 </td>
                 <td>
-                    @if (user.Roles.Any(x => x.UserId == this.Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value))
-                    {
-                        <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id">Изтрий</a>
-                    })
+                    @{
+                        if (user.Id != userId)
+                        {
+                            <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id">Изтрий</a>
+                        }
+                    }
                 </td>
             </tr>
         }
@@ -82,8 +86,7 @@
             width: 100%;
         }
 
-        #createButton {
-            margin-left: auto;
+        .button {
             color: #ffffff;
             border: none;
             border-radius: 0.5rem; /* 3xl ≈ 24px */

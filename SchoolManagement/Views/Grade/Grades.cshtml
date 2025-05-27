@@ -17,6 +17,7 @@
             <th>От</th>
             <th>Дата</th>
             <th>Предмет</th>
+            <th>Действия</th>
         </tr>
         @foreach(var grade in Model)
         {
@@ -26,7 +27,7 @@
                 <td>@grade.CreatedByName</td>
                 <td>@grade.CreatedOn.ToString("g")</td>
                 <td>@grade.Subject</td>
-                @if (userId == grade.CreatedById || this.Context.User.IsInRole("Admin"))
+                @if ((userId == grade.CreatedById || this.Context.User.IsInRole("Admin")) && !this.Context.User.IsInRole("Student"))
                 {
                     <td>
                         <a asp-="Grade" asp-action="DeleteGrade">Изтрий</a>

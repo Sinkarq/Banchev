@@ -24,7 +24,6 @@ public class GradeController : Controller
         if (userRole == "Admin")
         {
             var grades = await this.dbContext.Grades
-                .Where(x => x.StudentId == this.User.FindFirstValue(ClaimTypes.NameIdentifier))
                 .Include(x => x.Student)
                 .ToListAsync();
             list = grades;
@@ -42,9 +41,13 @@ public class GradeController : Controller
 
         if (userRole == "Student")
         {
-            var studentId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var student = await this.dbContext.Students
+                .Where(x => x.IdentityUserId == userId)
+                .Select(x => new { x.Id })
+                .FirstOrDefaultAsync();
             var grades = await this.dbContext.Grades
-                .Where(x => x.StudentId == studentId)
+                .Where(x => x.StudentId == student.Id)
                 .Include(x => x.Student)
                 .ToListAsync();
             list = grades;

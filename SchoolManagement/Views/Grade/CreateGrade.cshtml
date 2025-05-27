@@ -10,9 +10,9 @@
         .Where(r => r.Name == "Student")
         .Select(r => r.Id)
         .FirstOrDefaultAsync();
-    var students = DbContext.Users
-        .Where(x => x.Roles.Any(r => r.RoleId == studentRoleId))
-        .Select(u => new { u.Id, u.UserName })
+    var students = DbContext.Students
+        .Where(x => x.IdentityUser.Roles.Any(r => r.RoleId == studentRoleId))
+        .Select(u => new { u.Id, u.Name })
         .ToList();
 }
 
@@ -31,7 +31,7 @@
         <select style="width: 100%; padding: 1rem" asp-for="StudentId">
             @foreach(var student in students)
             {
-                <option value="@student.Id">@student.UserName</option>
+                <option value="@student.Id">@student.Name</option>
             }
         </select>
     </div>
