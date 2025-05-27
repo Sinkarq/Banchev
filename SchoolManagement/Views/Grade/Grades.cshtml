@@ -1,15 +1,18 @@
-﻿@model List<Domain.Grade>
+﻿@using System.Security.Claims
+@model List<Domain.Grade>
 
 @{
     Layout = "_Layout";
+    var userId = this.Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 }
 
 <div id="container">
     <div style="display: flex; margin-bottom: 0.5rem;">
-        <a asp-controller="Admin" asp-action="CreateUser" id="createButton">Създай потребител</a>
+        <a asp-controller="Grade" asp-action="CreateGrade" id="createButton">Създай оценка</a>
     </div>
     <table>
         <tr>
+            <th>Ученик</th>
             <th>Оценка</th>
             <th>От</th>
             <th>Дата</th>
@@ -18,10 +21,17 @@
         @foreach(var grade in Model)
         {
             <tr>
+                <td>@grade.Student.Name</td>
                 <td>@grade.Value</td>
                 <td>@grade.CreatedByName</td>
                 <td>@grade.CreatedOn.ToString("g")</td>
                 <td>@grade.Subject</td>
+                @if (userId == grade.CreatedById || this.Context.User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a asp-="Grade" asp-action="DeleteGrade">Изтрий</a>
+                    </td>
+                }
             </tr>
         }
     </table>

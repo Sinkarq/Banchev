@@ -1,0 +1,82 @@
+﻿@using Microsoft.EntityFrameworkCore
+@using Persistence.Data
+@model SchoolManagement.ViewModels.Grade.CreateGradeInputModel
+@inject ApplicationDbContext DbContext
+
+@{
+    ViewBag.Title = "Създай оценка";
+    Layout = "_Layout";
+    var studentRoleId = await DbContext.Roles
+        .Where(r => r.Name == "Student")
+        .Select(r => r.Id)
+        .FirstOrDefaultAsync();
+    var students = DbContext.Users
+        .Where(x => x.Roles.Any(r => r.RoleId == studentRoleId))
+        .Select(u => new { u.Id, u.UserName })
+        .ToList();
+}
+
+<form asp-action="CreateGrade" asp-controller="Grade" method="post" enctype="multipart/form-data">
+    <div class="text-red" asp-validation-summary="All"></div>
+    
+    <div class="w-full">
+        <input asp-for="Subject" placeholder="Предмет" class="input"/>
+    </div>
+
+    <div class="w-full">
+        <input asp-for="Value" placeholder="Оценка" class="input"/>
+    </div>
+    
+    <div class="w-full">
+        <select style="width: 100%; padding: 1rem" asp-for="StudentId">
+            @foreach(var student in students)
+            {
+                <option value="@student.Id">@student.UserName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" id="createButton">Напиши оценка</button>
+</form>
+
+@section Styles 
+{
+    <style>
+        .input {
+            border: rgb(211 211 211 / 1) 1px solid;
+            padding: 0.5rem 0.5rem 0.5rem 0.625rem;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            border-radius: 5px;
+            width: 100%;
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 33%;
+            margin: 1rem;
+            align-items: center;
+        }
+
+        #createButton {
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.5rem; /* 3xl ≈ 24px */
+            padding: 0.5rem 2rem;
+            font-weight: 500;      /* medium */
+            display: flex;
+            background-color: #123456; /* replace with actual "blacklist-blue" value */
+            text-decoration: none;
+        }
+    </style>
+}
+

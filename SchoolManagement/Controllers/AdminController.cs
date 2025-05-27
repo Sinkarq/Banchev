@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Data;
 using SchoolManagement.Infrastructure;
 using SchoolManagement.ViewModels.Admin;
 
@@ -11,11 +12,13 @@ public class AdminController : Controller
 {
     private readonly UserManager<ApplicationUser> userManager;
     private readonly RoleManager<ApplicationRole> roleManager;
+    private readonly ApplicationDbContext db;
     
-    public AdminController(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
+    public AdminController(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, ApplicationDbContext db)
     {
         this.userManager = userManager;
         this.roleManager = roleManager;
+        this.db = db;
     }
 
     [HttpGet("/Admin")]
@@ -57,6 +60,18 @@ public class AdminController : Controller
         
         await this.userManager.CreateAsync(user, inputModel.Password);
         var role = inputModel.Role == 1 ? "Student" : "Teacher";
+
+        if (role == "Student")
+        {
+            var student = new Student
+            {
+                IdentityUserId = user.Id,
+                Name = inputModel.Username
+            };
+            await this.db.Students.AddAsync(student);
+        }
+
+        await this.db.SaveChangesAsync();
         await this.userManager.AddToRoleAsync(user, role);
 
         return this.RedirectToAction(nameof(this.Index));

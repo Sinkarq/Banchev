@@ -1,4 +1,5 @@
-﻿@using Domain
+﻿@using System.Security.Claims
+@using Domain
 @model (List<ApplicationUser> users, List<Domain.ApplicationRole> roles)
 @{
     ViewData["Title"] = "Потребители";
@@ -37,7 +38,10 @@
                     }
                 </td>
                 <td>
-                    <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id">Изтрий</a>
+                    @if (user.Roles.Any(x => x.UserId == this.Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value))
+                    {
+                        <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id">Изтрий</a>
+                    })
                 </td>
             </tr>
         }
