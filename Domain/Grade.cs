@@ -4,10 +4,10 @@ public sealed class Grade
 {
     public Grade()
     {
-        this.Id = Guid.NewGuid();
+        this.Id = Guid.NewGuid().ToString();
     }
     
-    public Guid Id { get; set; }
+    public string Id { get; set; }
     public string StudentId { get; set; }
     public Student Student { get; set; }
     public string CreatedByName { get; set; }

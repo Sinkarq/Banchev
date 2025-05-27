@@ -30,7 +30,7 @@
                 @if ((userId == grade.CreatedById || this.Context.User.IsInRole("Admin")) && !this.Context.User.IsInRole("Student"))
                 {
                     <td>
-                        <a asp-="Grade" asp-action="DeleteGrade">Изтрий</a>
+                        <a asp-controller="Grade" asp-action="DeleteGrade" asp-route-gradeId="@grade.Id">Изтрий</a>
                     </td>
                 }
             </tr>

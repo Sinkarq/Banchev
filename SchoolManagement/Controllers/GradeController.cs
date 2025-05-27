@@ -90,17 +90,10 @@ public class GradeController : Controller
         return this.RedirectToAction(nameof(this.Grades));
     }
     
-    [HttpGet("/Grades/Delete/{id}")]
-    public async Task<IActionResult> DeleteGrade(int id)
+    [HttpGet("/Grades/Delete/{gradeId}")]
+    public async Task<IActionResult> DeleteGrade(string gradeId)
     {
-        var grade = await this.dbContext.Grades.FindAsync(id);
-        if (grade == null)
-        {
-            return this.NotFound();
-        }
-
-        this.dbContext.Grades.Remove(grade);
-        await this.dbContext.SaveChangesAsync();
+        await this.dbContext.Grades.Where(x => x.Id == gradeId).ExecuteDeleteAsync();
 
         return this.RedirectToAction(nameof(this.Grades));
     }

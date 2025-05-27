@@ -53,13 +53,19 @@ public class AdminController : Controller
             return this.View(inputModel);
         }
 
-        var user = new ApplicationUser
+        var user = new ApplicationUser()
         {
             UserName = inputModel.Username
         };
+        var passwordHash = this.userManager.PasswordHasher.HashPassword(user, inputModel.Password);
+        user.PasswordHash = passwordHash;
+        user.Email = inputModel.Username;
         
-        await this.userManager.CreateAsync(user, inputModel.Password);
+        this.db.Users.Add(user);
+        await this.db.SaveChangesAsync();
         var role = inputModel.Role == 1 ? "Student" : "Teacher";
+        
+        var teacherRoleId = await this.db.Roles.FirstOrDefaultAsync(x => x.Name == role);
 
         if (role == "Student")
         {
@@ -70,19 +76,27 @@ public class AdminController : Controller
             };
             await this.db.Students.AddAsync(student);
         }
+        
 
         await this.db.SaveChangesAsync();
-        await this.userManager.AddToRoleAsync(user, role);
+        var newUser = this.db.Users.FirstOrDefault(x => x.UserName == inputModel.Username);
+        await this.userManager.AddToRoleAsync(newUser, role);
+        await this.db.SaveChangesAsync();
 
         return this.RedirectToAction(nameof(this.Index));
     }
     
-    [HttpDelete("/DeleteUser/{id}")]
+    [HttpGet("/DeleteUser/{id}")]
     [CustomAuthorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteUser(string id)
     {
         var user = await this.userManager.FindByIdAsync(id);
 
+        this.db.Grades.Where(x => x.Student.IdentityUserId == id).ExecuteDelete();
+        this.db.Students.Where(x => x.IdentityUserId == id).ExecuteDelete();
+        await this.userManager.RemoveFromRoleAsync(user, "Student");
+        await this.userManager.RemoveFromRoleAsync(user, "Teacher");
+        await this.db.SaveChangesAsync();
         await this.userManager.DeleteAsync(user);
 
         return this.RedirectToAction(nameof(this.Index));
