@@ -37,3 +37,7 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+.text-red {
+    color: red;
+}
