@@ -18,6 +18,7 @@ public class IdentityController : Controller
     }
 
     [HttpGet("/Login")]
+    [HttpGet("/")]
     [AllowAnonymous]
     public IActionResult Login()
     {

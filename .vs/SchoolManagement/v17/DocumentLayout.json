@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|c:\\users\\sinkarq\\documents\\projects\\schoolmanagement\\schoolmanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|solutionrelative:schoolmanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|c:\\users\\sinkarq\\documents\\projects\\schoolmanagement\\schoolmanagement\\controllers\\identitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|solutionrelative:schoolmanagement\\controllers\\identitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|c:\\users\\sinkarq\\documents\\projects\\schoolmanagement\\schoolmanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|solutionrelative:schoolmanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|c:\\users\\sinkarq\\documents\\projects\\schoolmanagement\\schoolmanagement\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|solutionrelative:schoolmanagement\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|c:\\users\\sinkarq\\documents\\projects\\schoolmanagement\\schoolmanagement\\instructions.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DF9D1150-F47F-4549-BD25-A8A54B450E9A}|SchoolManagement\\SchoolManagement.csproj|solutionrelative:schoolmanagement\\instructions.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SchoolManagement\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SchoolManagement\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T22:39:28.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IdentityController.cs",
+              "DocumentMoniker": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\Controllers\\IdentityController.cs",
+              "RelativeDocumentMoniker": "SchoolManagement\\Controllers\\IdentityController.cs",
+              "ToolTip": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\Controllers\\IdentityController.cs",
+              "RelativeToolTip": "SchoolManagement\\Controllers\\IdentityController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T22:31:44.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "instructions.txt",
+              "DocumentMoniker": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\instructions.txt",
+              "RelativeDocumentMoniker": "SchoolManagement\\instructions.txt",
+              "ToolTip": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\instructions.txt",
+              "RelativeToolTip": "SchoolManagement\\instructions.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-27T22:19:22.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SchoolManagement\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SchoolManagement\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-27T22:16:28.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\appsettings.json",
+              "RelativeDocumentMoniker": "SchoolManagement\\appsettings.json",
+              "ToolTip": "C:\\Users\\Sinkarq\\Documents\\Projects\\SchoolManagement\\SchoolManagement\\appsettings.json",
+              "RelativeToolTip": "SchoolManagement\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-27T22:11:31.447Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
