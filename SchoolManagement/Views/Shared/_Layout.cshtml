@@ -3,21 +3,22 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="~/css/styles.css"/>
-    <title>@ViewData["Title"] - SchoolManagement</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>@ViewData["Title"]</title>
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
 
 <header>
-    <h1>Header</h1>
+    <h1>Образователна система</h1>
 </header>
 
-<main>
+<main style="display: flex">
     @RenderBody()
 </main>
 
 <footer>
-    <p>Sticky Footer</p>
+    <p>Дипломент проект</p>
 </footer>
 
     
