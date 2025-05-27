@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SchoolManagement.Models.Identity.Login;
+namespace SchoolManagement.ViewModels.Identity.Login;
 
 public sealed class LoginInputModel
 {

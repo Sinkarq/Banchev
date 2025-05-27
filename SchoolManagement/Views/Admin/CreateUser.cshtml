@@ -1,20 +1,29 @@
-﻿@{
+﻿@model SchoolManagement.ViewModels.Admin.CreateUserInputModel
+
+@{
     ViewBag.Title = "Създай потребител";
     Layout = "_Layout";
 }
 
-<form>
+<form asp-action="CreateUser" asp-controller="Admin" method="post" enctype="multipart/form-data">
+    <div class="text-red" asp-validation-summary="All"></div>
+    
     <div class="w-full">
-        <span></span>
-        <input placeholder="Потребителско име" class="input" />
+        <input asp-for="Username" placeholder="Потребителско име" class="input"/>
+    </div>
+
+    <div class="w-full">
+        <input asp-for="Password" type="password" placeholder="Парола" class="input"/>
     </div>
     
     <div class="w-full">
-        <span></span>
-        <input type="password" placeholder="Парола" class="input" />
+        <select style="width: 100%; padding: 1rem" asp-for="Role">
+            <option value="1">Ученик</option>
+            <option value="2">Учител</option>
+        </select>
     </div>
-    
-    <a id="createButton">Създай потребител</a>
+
+    <button type="submit" id="createButton">Създай потребител</button>
 </form>
 
 @section Styles 

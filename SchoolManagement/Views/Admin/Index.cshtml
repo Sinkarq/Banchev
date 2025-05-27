@@ -1,11 +1,16 @@
-﻿@{
+﻿@using Domain
+@model (List<ApplicationUser> users, List<Domain.ApplicationRole> roles)
+@{
     ViewData["Title"] = "Потребители";
     Layout = "_Layout";
+    var adminRoleId = Model.roles.FirstOrDefault(x => x.Name!.Equals("Admin", StringComparison.InvariantCultureIgnoreCase))?.Id;
+    var teacherRoleId = Model.roles.FirstOrDefault(x => x.Name!.Equals("Teacher", StringComparison.InvariantCultureIgnoreCase))?.Id;
+    var studentRoleId = Model.roles.FirstOrDefault(x => x.Name!.Equals("Student", StringComparison.InvariantCultureIgnoreCase))?.Id;
 }
 
 <div id="container">
     <div style="display: flex; margin-bottom: 0.5rem;">
-        <a href="#" id="createButton">Създай потребител</a>
+        <a asp-controller="Admin" asp-action="CreateUser" id="createButton">Създай потребител</a>
     </div>
     <table>
         <tr>
@@ -13,11 +18,29 @@
             <th>Тип</th>
             <th>Действия</th>
         </tr>
-        <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-        </tr>
+        @foreach (var user in Model.users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>
+                    @if (user.Roles.Any(x => x.RoleId == adminRoleId))
+                    {
+                        <span>Администратор</span>
+                    }
+                    else if (user.Roles.Any(x => x.RoleId == teacherRoleId))
+                    {
+                        <span>Учител</span>
+                    }
+                    else if (user.Roles.Any(x => x.RoleId == studentRoleId))
+                    {
+                        <span>Ученик</span>
+                    }
+                </td>
+                <td>
+                    <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id">Изтрий</a>
+                </td>
+            </tr>
+        }
     </table>
 </div>
 

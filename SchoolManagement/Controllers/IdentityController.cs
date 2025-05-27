@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SchoolManagement.Models.Identity.Login;
+using SchoolManagement.ViewModels.Identity.Login;
 
 namespace SchoolManagement.Controllers;
 
