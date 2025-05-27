@@ -17,4 +17,7 @@ public class ApplicationUser : IdentityUser
     public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
     public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+    
+    public string? StudentId { get; set; } = null!;
+    public Student? Student { get; set; }
 }

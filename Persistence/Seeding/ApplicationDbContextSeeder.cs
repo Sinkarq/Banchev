@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SchoolManagement.Data;
+using Persistence.Data;
 
 namespace Persistence.Seeding;
 

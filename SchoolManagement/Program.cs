@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Persistence.Data;
 using Persistence.Seeding;
-using SchoolManagement.Data;
 
 namespace SchoolManagement;
 

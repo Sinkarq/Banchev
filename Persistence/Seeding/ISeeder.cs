@@ -1,4 +1,4 @@
-﻿using SchoolManagement.Data;
+﻿using Persistence.Data;
 
 namespace Persistence.Seeding;
 
