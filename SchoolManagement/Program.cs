@@ -25,7 +25,7 @@ public class Program
         {
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             
-            if (dbContext.Database.IsSqlServer() && dbContext.Database.GetPendingMigrations().Any())
+            if (dbContext.Database.IsMySql() && dbContext.Database.GetPendingMigrations().Any())
             {
                 dbContext.Database.Migrate();
             }

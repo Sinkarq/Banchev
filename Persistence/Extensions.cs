@@ -19,7 +19,7 @@ public static class Extensions
                 throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             }
 
-            options.UseSqlServer(connectionString);
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
 
         services.AddDefaultIdentity<ApplicationUser>(options => {
